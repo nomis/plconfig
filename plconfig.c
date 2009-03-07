@@ -198,6 +198,8 @@ void read_display_responses(int netfd, u_char *framebuf, u_int buflen) {
 	char macbuf[20];
 
 	/* read responses */
+	signal(SIGALRM, exit);
+	alarm(1);
 	while (1) {
 #ifdef LINUX
 		rdlen = recvfrom(netfd, framebuf+ETHER_HDR_LEN, buflen-ETHER_HDR_LEN, MSG_TRUNC, (struct sockaddr *)&addr, &addrlen);
