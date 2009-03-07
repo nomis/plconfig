@@ -208,7 +208,7 @@ void read_display_responses(int netfd, u_char *framebuf, u_int buflen) {
 		if (rdlen != -1) {
 		
 #ifdef LINUX
-			if (rdlen > buflen-ETHER_HDR_LEN) {
+			if ((u_int)rdlen > buflen-ETHER_HDR_LEN) {
 				fprintf(stderr, "received jumbo frame of %d bytes len, truncated\n", rdlen);
 			}
 			frameptr = framebuf;
@@ -384,7 +384,7 @@ int main(int argc, char *argv[]) {
 				} else {
 					/* It's a plaintext password - use PBKDF1 on it */
 					MD5_CTX	md5ctx;
-					u_char	digest[16], tmp[256];
+					char	digest[16], tmp[256];
 					
 					strncpy(tmp, optarg, 240);
 					/* add salt */
