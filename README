@@ -1,0 +1,20 @@
+plconfig - configuration tool for Intellon-based powerline bridges
+
+Should compile without modification under FreeBSD 4.x or later and Mac OS X.
+
+Just type 'make'.
+
+
+Change log
+----------
+
+0.2: plaintext passwords are now hashed correctly as per the HomePlug
+     specification (no longer homebrew MD5); as such passwords should now
+     be compatible with the Windows setup software supplied by Intellon
+     (note that -s <password> does no longer set up the same key as
+     in 0.1! Of course -s 0x<key> behaves as before...)
+
+0.1: initial release
+
+
+Please visit http://neon1.net/ for updated versions of plconfig.
