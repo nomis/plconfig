@@ -211,7 +211,7 @@ void read_display_responses(int netfd, u_char *framebuf, u_int buflen) {
 		
 #ifdef LINUX
 			if ((u_int)rdlen > buflen-ETHER_HDR_LEN) {
-				fprintf(stderr, "received jumbo frame of %ld bytes len, truncated\n", rdlen);
+				fprintf(stderr, "received jumbo frame of %zd bytes len, truncated\n", rdlen);
 			}
 			frameptr = framebuf;
 			memcpy(framebuf+6, &addr.sll_addr, 6);
